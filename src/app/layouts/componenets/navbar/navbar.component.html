@@ -1,1 +1,23 @@
-<p>navbar works!</p>
+<div class="bg-secondary h-full" [@widthGrow]="openNavbar">
+    <div *ngIf="openNavbar === 'open'; else closeNavbar" class="flex flex-col justify-center items-center">
+        <div class="m-4">
+            <div class="flex justify-center items-center">
+                <h2 class="text-2xl hover:cursor-default">Gifs-app</h2>
+                <fa-icon (click)="changeState()" class="m-2 cursor-pointer hover:text-hover" [icon]="faArrowLeft"></fa-icon>
+            </div>
+        </div>
+        <hr class="w-4/5 my-2">
+        <div class="m-4">
+            <ul>
+                <li class="my-1 cursor-pointer hover:text-hover">Dashboard</li>
+                <li class="my-1 cursor-pointer hover:text-hover">One Piece</li>
+                <li class="my-1 cursor-pointer hover:text-hover">Gatitos</li>
+            </ul>
+        </div>
+    </div>
+    <ng-template #closeNavbar>
+        <div class="flex justify-center items-center">
+            <fa-icon (click)="changeState()" class="m-2 cursor-pointer hover:text-hover" [icon]="faBars"></fa-icon>
+        </div>
+    </ng-template>
+</div>
